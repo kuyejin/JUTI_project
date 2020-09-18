@@ -1,4 +1,4 @@
-package edu.bit.ex;
+package edu.bit.juti.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -29,25 +29,64 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}
+
 	
 	@GetMapping("/test") 
-	public String write_view() {
+	public String test() {
 		log.info("test");
 			
 		return "test";
 	}
+	
+	@GetMapping("/") 
+	public String main() {
+		log.info("main");
+			
+		return "main";
+	}
+	
+	
+	@GetMapping("/join") 
+	public String join() {
+		log.info("join");
+			
+		return "join";
+	}
+	
+	@GetMapping("/cart") 
+	public String cart() {
+		log.info("cart");
+			
+		return "cart";
+	}
+	
+	@GetMapping("/mypage") 
+	public String mypage() {
+		log.info("mypage");
+			
+		return "mypage";
+	}
+	
+	@GetMapping("/product") 
+	public String product() {
+		log.info("product");
+			
+		return "product";
+	}
+	
+	@GetMapping("/order_product") 
+	public String order_product() {
+		log.info("order_product");
+			
+		return "order_product";
+	}
+	
+	@GetMapping("/review") 
+	public String review() {
+		log.info("review");
+			
+		return "review";
+	}
+	
 	
 }

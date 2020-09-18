@@ -1027,7 +1027,7 @@ a.comm_btn {
   cursor: default;
 }
 
-.comm_btn.cfm, .comm_btn.sbm[type=submit], a.comm_btn {
+.comm_btn., .comm_btn.sbm[type=submit], a.comm_btn {
   background: #1edeb9;
 }
 
@@ -1323,7 +1323,10 @@ form .f_message.ok {
   margin-top: -18px;
 }
 
-#gnb {
+
+
+
+#mainMenu {
   float: right;
   max-width: 490px;
   padding-right: 25px;
@@ -1331,33 +1334,50 @@ form .f_message.ok {
           box-sizing: border-box;
 }
 
-#gnb:after {
+#mainMenu:after {
   content: "";
   display: table;
   clear: both;
 }
 
-#gnb li {
+#mainMenu li {
   float: left;
   margin-left: 50px;
   height: 34px;
   line-height: 34px;
 }
 
-#gnb li:first-child {
+#mainMenu li:first-child {
   margin: 0 !important;
 }
 
-#gnb button {
+#mainMenu button {
   line-height: inherit;
 }
 
-#gnb a {
+#mainMenu a {
   font-family: "noto-sans-scott-r";
   font-size: 20px;
   -webkit-transition: color .5s linear;
   transition: color .5s linear;
 }
+
+
+#fixMenu{
+	float: right;
+  max-width: 490px;
+  padding-right: 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;	
+}
+
+#fixMenu li {
+  float: left;
+  margin-left: 50px;
+  height: 10px;
+  line-height: 34px;
+}
+
 
 #userMenu {
   position: absolute;
@@ -1588,7 +1608,7 @@ form .f_message.ok {
   margin-top: -100px;
 }
 
-#header.bg #gnb a, #header.bg #gnb button {
+#header.bg #mainMenu a, #header.bg #mainMenu button {
   color: #fff;
 }
 
@@ -1623,10 +1643,10 @@ form .f_message.ok {
     width: 167px;
     background-size: 167px;
   }
-  #header #gnb {
+  #header #mainMenu {
     max-width: 430px;
   }
-  #header #gnb li {
+  #header #mainMenu li {
     margin-left: 30px;
   }
   #header .search_box {

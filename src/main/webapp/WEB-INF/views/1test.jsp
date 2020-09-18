@@ -105,9 +105,9 @@
 						</c:if>						
 						<c:if test="${login eq null }">
 							<li><a href="${root}member/login" class="btn_pop">로그인</a></li>
-						</c:if>
-						
+						</c:if>						
 					</ul>
+	
 					<c:if test="${login ne null }">
 						<div id="userMenu" class="fstLyr">
 							<button class="btn_menu">
