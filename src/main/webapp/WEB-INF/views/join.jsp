@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -15,9 +19,9 @@
 	<body>
 		<center>
 		<h1> 회원가입</h1>
-		 
-		<div style="text-align: center" width="400px">
-			<form action="${root }user/join"  method="post">
+		 		   
+		    <c:url value ="/user/addUser" var="addUserUrl" />
+			<form:form name="join" action="${addUserUrl}"  method="POST">
 			
 			<label for="juti1" class="comm_label">아이디 </label>
 			<input type="text" id="user_id" name="user_id" required> 
@@ -38,7 +42,7 @@
 			
 			<label for="juti5" class="comm_label">생년월일</label>
 			<select name="year">
-			<%for(int i=2014; i>1949; i--){ %>
+			<%for(int i=2020; i>1949; i--){ %>
 			<option value="<%=i%>"><%=i %>년</option>
 			<%} %>
 			</select>
@@ -60,21 +64,23 @@
 			<input type="text" id="user_phonenumber" name="user_phonenumber" required> 
 			</br>   
 			
-			<label for="juti7" class="comm_label">주소</label>
-			<input type="text" id="user_addressr" name="user_address" required> 
-			</br>   
-			
 			<label for="juti8" class="comm_label">이메일</label>
 			<input type="text" id="user_email" name="user_email" required> 
 			</br>  			    			   		    
 		
+			
+			<label for="juti7" class="comm_label">주소</label>
+			<input type="text" id="user_addressr" name="user_address" required> 
+			</br>   
+			
+			
 
 	
-			<button type="button" id="joinBtn" class="comm_btn sbm">가입하기</button>
-			<input type="reset" value="새로작성"/>
+			<button type="submit" id="joinBtn" class="comm_btn sbm">가입하기</button>
+			<input type="reset" value="새로작성">
 			 
-			</form>
-		</div> 
+			</form:form>
+
 		 
 		
 		</center>

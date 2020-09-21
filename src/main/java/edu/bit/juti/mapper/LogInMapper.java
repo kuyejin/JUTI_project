@@ -14,8 +14,8 @@ import edu.bit.juti.vo.UserVO;
 
 public interface LogInMapper { 
 	
-	@Select("select * from users where username = #{username} and password = #{password}")
-	UserVO LogInUser(@Param("username") String username, @Param("password") String password);
+	@Select("select * from users where username = #{user_id} and password = #{user_password}")
+	UserVO LogInUser(@Param("user_id") String user_id, @Param("user_password") String user_password);
 }
 
 	

@@ -82,11 +82,11 @@
 
 
 <body>
-<c:if test="${sessionScope.login ne null }">
+<%-- <c:if test="${sessionScope.login ne null }">
 	<c:if test="${sessionScope.login.proid eq 'admin@festa.com' }">
 		<c:redirect url="/empty"/>
 	</c:if>
-</c:if>
+</c:if> --%>
 <!-- 그룹 -->
 	<div id="wrap">
 		<div id="header">

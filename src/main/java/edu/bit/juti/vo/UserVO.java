@@ -9,30 +9,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@NoArgsConstructor
+
 @AllArgsConstructor
 @Setter
 @Getter
 public class UserVO {
 	
-	String user_id;
+	String user_id;                  //¾ÆÀÌµð(pk)
 	String user_password;
 	String user_passwordCheck;
 	String user_name;
-	Date user_birth;
-	String user_phonenumber;
-	String user_address;
+	String user_birth;
+	String User_phonenumber;
 	String user_email;
-	String mail_reception;
-	String sms_reception;
-	
-
+	String user_address;
 	
 	
+	public UserVO() {
+
+	}
 
 
-
-
-	
 	
 }

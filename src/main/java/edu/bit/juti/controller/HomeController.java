@@ -46,12 +46,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("/join") 
-	public String join() {
-		log.info("join");
-			
-		return "join";
-	}
+	
 	
 	@GetMapping("/cart") 
 	public String cart() {
@@ -87,6 +82,8 @@ public class HomeController {
 			
 		return "review";
 	}
+	
+	
 	
 	
 }
