@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,21 +25,16 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 
 	
-	@GetMapping("/test") 
+	@RequestMapping(value="/test")
 	public String test() {
 		log.info("test");
 			
-		return "test";
+		return "1test";
 	}
 	
-	@GetMapping("/") 
+	@RequestMapping(value="/")
 	public String main() {
 		log.info("main");
 			
@@ -46,44 +42,43 @@ public class HomeController {
 	}
 	
 	
-	
-	
-	@GetMapping("/cart") 
+	@RequestMapping(value="/cart")
 	public String cart() {
 		log.info("cart");
 			
 		return "cart";
 	}
+
 	
-	@GetMapping("/mypage") 
+	@RequestMapping(value="/mypage")
 	public String mypage() {
 		log.info("mypage");
 			
 		return "mypage";
 	}
 	
-	@GetMapping("/product") 
+	@RequestMapping(value="/product")
 	public String product() {
 		log.info("product");
 			
 		return "product";
 	}
 	
-	@GetMapping("/order_product") 
+	@RequestMapping(value="/order_product")
 	public String order_product() {
 		log.info("order_product");
 			
 		return "order_product";
 	}
 	
-	@GetMapping("/review") 
+	@RequestMapping(value="/review")
 	public String review() {
 		log.info("review");
 			
 		return "review";
 	}
 	
+
 	
-	
-	
+
 }

@@ -1,7 +1,6 @@
 package edu.bit.juti.vo;
 
 
-import java.sql.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-
+@NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
@@ -23,11 +22,10 @@ public class UserVO {
 	String User_phonenumber;
 	String user_email;
 	String user_address;
+	int enabled;
 	
 	
-	public UserVO() {
 
-	}
 
 
 	

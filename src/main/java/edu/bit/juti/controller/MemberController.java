@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import edu.bit.juti.service.LogInService;
 import edu.bit.juti.service.MemberService;
+import edu.bit.juti.service.MemberServiceImpl;
+import edu.bit.juti.vo.LoginVO;
 import edu.bit.juti.vo.UserVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -27,13 +31,15 @@ import lombok.extern.log4j.Log4j;
  */
 @Controller
 @Log4j
-@AllArgsConstructor  
-public class LogInController {
+public class MemberController {
+	
+	
+	@Autowired
+	private LogInService loginService;
 	
 	
 	@Inject
-	private LogInService loginService;
-	private MemberService memberService;
+	private MemberServiceImpl memberService;
 
 	
 	//처리해야함
@@ -66,16 +72,21 @@ public class LogInController {
 		
 	}
 	
-	@RequestMapping(value = "/login")
+	// 로그인 화면 (팝업)
+	@RequestMapping(value = "login")
     public String login(HttpSession session) throws Exception{
 		log.info("/login");
-		
-
-		
-		return "login";
-		
-	
+				
+		return "member/login";			
     }
+	
+	// 로그인 처리
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+		public @ResponseBody UserVO login(HttpServletRequest req, HttpServletResponse resp,LoginVO loginVo) {
+			UserVO user = memberService.login(req, resp,loginVo);
+			
+			return user;
+		}
 	
 	//로그인 정보를 왜 session에 넣는지?
 		//session객체는  HttpSession에서 받아온다
@@ -88,42 +99,35 @@ public class LogInController {
 				                      //                                 .invalidate는 가비지컬렉터에게 메모리 지우는 대상이라고 알려주는것
 				
 				return "redirect:/";
-				
-			
+						
 		}
 		
 		
 		
 		
 		
-		@GetMapping("/join") 
-		public String join() {
+		//회원가입
+		@RequestMapping(value = "/join")
+		public String join() { 
 			log.info("join");
-				
-			return "join2";
+			
+			return "member/join"; 
 		}
-		
-		//join1
-		/*@PostMapping("/user/addUser")
-		public String addUser(UserVO userVO) {
-			log.info("addUser");
-			
-			memberService.addUser(userVO);
-			
-			return "redirect:/"; 
-		}**/
-		
-		//join2
-		// 회원가입 성공
-		@PostMapping("/success")
-		public String addUser(UserVO userVO) {
-			log.info("addUser");
-			
-			memberService.addUser(userVO);
-			
-			return "main"; 
+					
+		//회원가입성공
+		@RequestMapping(value = "/member/addUser", method = RequestMethod.POST)
+		public String addUser(Model model, UserVO userVO) {
+			System.out.println(userVO);
+			memberService.addUser(model, userVO);
+						
+			return "member/success";
 		}
+
+		
+		
 	
+	
+
 	
 			
 	

@@ -6,7 +6,8 @@
   <configuration>
   
   	<typeAliases>
-  		<typeAlias alias="UserVo" type="edu.bit.juti.vo.UserVO" />
+  		<typeAlias alias="UserVO" type="edu.bit.juti.vo.UserVO" />
+  		<typeAlias alias="LoginVO" type="edu.bit.juti.vo.LoginVO" />
   	</typeAliases>
   	
   	

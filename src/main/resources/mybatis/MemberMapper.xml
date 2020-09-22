@@ -2,12 +2,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.bit.juti.mapper.MemberMapper"> <!-- 인터페이스에 대한 패키지.자바명 -->
+<!-- <mapper namespace="edu.bit.juti.dao.MemberDaoImpl">  -->
+<mapper namespace="member"> 
 	
-	<insert id="addUser" parameterType="UserVo">
-		insert into users (user_id,user_password,user_passwordCheck,user_name,user_birth,user_phonenumber,user_email,user_address) 
-		values (#{user_id},#{user_password},#{user_passwordCheck},#{user_name},#{user_birth},#{user_phonenumber},#{user_email},#{user_address})
+	
+	<!-- 회원가입 -->
+	<insert id="addUser_nomal" parameterType="UserVO">
+		insert into USERS (user_id, user_password, user_passwordCheck, user_name, user_birth, user_phonenumber, user_email, user_address) 
+		values (#{user_id}, #{user_password}, #{user_passwordCheck}, #{user_name}, #{user_birth}, #{user_phonenumber}, #{user_email}, #{user_address})
 	</insert>
+	
+	
+	<!-- 로그인체크 (로그인확인 cnt와 로그인했을시 회원정보 출력) -->
+	<select id="login" parameterType="LoginVO" resultType="UserVO">
+	    select count(*) as logincheck, max(user_name) as user_name, max(user_id) as user_id, max(user_password) as user_password, 
+	    max(user_birth) as user_birth, max(user_phonenumber) as user_phonenumber, max(user_email) as user_email, max(user_address) as user_address,  
+		from USERS where user_id=#{user_id} and user_password=#{user_password}	
+	</select>
+	
+	
+
+
+
 	
 	
 

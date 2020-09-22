@@ -305,7 +305,7 @@
                <a href="/success"><em class="snd_only">JUTI</em></a>
             </h1>
             <form class="search_box">
-               <input type="text" placeholder="캠핑장 또는 그룹을 검색해보세요!" required="required">
+               <input type="text" placeholder="도안을 검색해보세요!" required="required">
                <button type="submit"><img src="${root }resources/images/ico/btn_search.png" alt="검색"></button>
             </form>
             <ul id="gnb">
@@ -332,13 +332,16 @@
          </div>
       </section>
       <section class="form_area">
-         <div class="container">
-            <form action="${root }success" method="post" class="comm_form">
+         <div class="container">    
+                <c:url value="/member/addUser" var="addUserUrl"/>
+                <form action="${addUserUrl}" method="post" class="comm_form">  
+               <!--  <form action="${root }success" method="post" class="comm_form">  -->
+               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
                <input type="hidden" id="proprovide" name="proprovide" value="0"/>
                <div class="input_wrap">
                      <div class="ip_id ip_box">
-                        <label for="juti1" class="comm_label">아이디 </label>
-						<input type="text" id="user_id" name="user_id" required="required"> 
+                        <label for="juti1">아이디 </label>
+						<input type="text" id="user_id" name="user_id" placeholder="ID" required="required"> 
 						<button type="button" id="email_check" class="btn_id">중복확인</button>
                         <!-- 유효성검사 후 메세지 출력 { -->
                         <p class="f_message"></p>
@@ -349,8 +352,8 @@
                      </div>
                      
                      <div class="ip_box">
-                           <label for="juti2" id="juti2" class="comm_label">비밀번호</label>
-                           <input type="password" id="user_password" name="user_password" required ="required">
+                           <label for="juti2" id="juti2">비밀번호</label>
+                           <input type="password" id="user_password" name="user_password" placeholder="PASSWORD" required ="required">
                            <p class="f_message"></p>
                            <p hidden="hidden" id="pwif" class="f_message rst">비밀번호는
                               8~13자 영문,숫자 조합이어야 합니다.</p>
@@ -361,21 +364,21 @@
                      </div>
                         
                      <div class="ip_box">
-                        <label for="juti3" id="juti3" class="comm_label">비밀번호 확인</label>
-						<input type="password" id="user_passwordCheck" name="user_passwordCheck" required ="required">	
+                        <label for="juti3" id="juti3">비밀번호 확인</label>
+						<input type="password" id="user_passwordCheck" name="user_passwordCheck" placeholder="Confirm Password" required ="required">	
                         <p class="f_message"></p>
                      </div>
                         
                      <div class="ip_box">
-                        <label for="juti4" class="comm_label">이름</label>
-						<input type="text" id="user_name" name="user_name" required ="required"> 
+                        <label for="juti4">이름</label>
+						<input type="text" id="user_name" name="user_name" placeholder="Name" required ="required"> 
                         <p hidden="hidden" id="namefail"
                               class="f_message rst">5자 이내로 입력하세요.</p>
                      </div>
                      
                      <div class="ip_box">
-                        <label for="juti5" class="comm_label">생년월일</label>
-                        <input type="text" id="user_birth" name="user_birth" required ="required">
+                        <label for="juti5">생년월일</label>
+                        <input type="text" id="user_birth" name="user_birth" placeholder="ex)1990415" required ="required">
                         
 						<%-- <select name="year">
 						<%for(int i=2020; i>1949; i--){ %>
@@ -397,24 +400,24 @@
                      </div>
                      
                      <div class="ip_box">
-                        <label for="juti6" class="comm_label">핸드폰번호</label>
-						<input type="text" id="user_phonenumber" name="user_phonenumber" required ="required"> 
+                        <label for="juti6">핸드폰번호</label>
+						<input type="text" id="user_phonenumber" name="user_phonenumber" placeholder="'-'없이 번호만 입력해주세요" required ="required"> 
                      </div>
                      
                      <div class="ip_box">
-                        <label for="juti7" class="comm_label">이메일</label>
-						<input type="text" id="user_email" name="user_email" required ="required"> 
+                        <label for="juti7">이메일</label>
+						<input type="text" id="user_email" name="user_email" placeholder="E-mail" required ="required"> 
                      </div>
                      
                      <div class="ip_box">
-                    	 <label for="juti8" class="comm_label">주소</label>
-						<input type="text" id="user_address" name="user_address" required ="required"> 
+                    	 <label for="juti8">주소</label>
+						<input type="text" id="user_address" name="user_address" placeholder="address" required ="required"> 
                      </div>
                      
                </div>
               
               
-               <div class="check_wrap">
+     <!--          <div class="check_wrap">
                   <dl>
                      <dt>
                         <input type="checkbox" class="comm_chk" id="juti9" name="allChecked">
@@ -454,7 +457,7 @@
               
               <button type="submit">가입하기</button>
              
-           
+               
             </form>
          </div>
       </section>

@@ -53,7 +53,7 @@
 		<div class="success_wrap container">
 			<h2><span>회원가입이 완료되었습니다!</span></h2>
 			<p>
-				<b>${join.proname }</b> 님, 페스타 회원이 되신 것을 환영합니다.<br>
+				<b>${join.user_name }</b> 님, 페스타 회원이 되신 것을 환영합니다.<br>
 				페스타에서 제공하는 다양한 서비스를 즐겨보세요!
 			</p>
 			<ul class="services">

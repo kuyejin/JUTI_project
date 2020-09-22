@@ -16,6 +16,7 @@
 	
 			<c:url value ="/login" var="loginUrl"/>	
 			<form:form name="login" action="${loginUrl}" method="POST">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
 			
 				<c:if test="${param.error != null}">
 			        <p>아이디와 비밀번호가 잘못되었습니다.</p>
@@ -35,22 +36,16 @@
 			        <input type="password" id="user_password" name="user_password"/>
 			    </p>
 			   
-			    <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
-			    <!-- 주석처리하더라도 자동으로 보내진다 - taglib prefix="form" 을 처리해줬기 때문이다 . form을 처리안해줬다면 주석처리를 빼줘야한다.
-			         csrf는 세션으로 들어간다-->
-	
-			    
+		    
 			   <li><button type="submit" class="btn_close comm_btn cnc">로그인</button></li>
 			   <li><a href="${root }join">회원가입</a></li>
 				<!-- <li><button type="button" id="btnLogin" class="ok comm_btn cfm">회원가입</button></li> -->
 			
 			
-						
+					
+		
 		 </form:form>
 		 
-		 
-		 
-		
 	
 	</body>
 </html>
