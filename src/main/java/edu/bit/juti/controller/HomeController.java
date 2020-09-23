@@ -78,6 +78,13 @@ public class HomeController {
 		return "review";
 	}
 	
+	
+	@RequestMapping(value="/empty")
+	public String empty() {
+		log.info("empty");
+			
+		return "empty";
+	}
 
 	
 

@@ -14,15 +14,17 @@ import lombok.Setter;
 @Getter
 public class UserVO {
 	
-	String user_id;                  //아이디(pk)
-	String user_password;
-	String user_passwordCheck;
-	String user_name;
-	String user_birth;
-	String User_phonenumber;
-	String user_email;
-	String user_address;
-	int enabled;
+	private String user_id;                  //아이디(pk)
+	private String user_password;
+	private String user_passwordCheck;
+	private String user_name;
+	private String user_birth;
+	private String User_phonenumber;
+	private String user_email;
+	private String user_address;
+	private int enabled;
+	private String authority;
+	private int logincheck;	
 	
 	
 

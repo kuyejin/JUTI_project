@@ -6,18 +6,23 @@
 <mapper namespace="member"> 
 	
 	
-	<!-- 회원가입 -->
+<!-- 회원가입  -->
 	<insert id="addUser_nomal" parameterType="UserVO">
-		insert into USERS (user_id, user_password, user_passwordCheck, user_name, user_birth, user_phonenumber, user_email, user_address) 
-		values (#{user_id}, #{user_password}, #{user_passwordCheck}, #{user_name}, #{user_birth}, #{user_phonenumber}, #{user_email}, #{user_address})
+		insert into USERS (user_id, user_password, user_passwordCheck, user_name, user_birth, user_phonenumber, user_email, user_address, enabled) 
+		values (#{user_id}, #{user_password}, #{user_passwordCheck}, #{user_name}, #{user_birth}, #{user_phonenumber}, #{user_email}, #{user_address}, 1)
 	</insert>
 	
-	
+
 	<!-- 로그인체크 (로그인확인 cnt와 로그인했을시 회원정보 출력) -->
 	<select id="login" parameterType="LoginVO" resultType="UserVO">
 	    select count(*) as logincheck, max(user_name) as user_name, max(user_id) as user_id, max(user_password) as user_password, 
-	    max(user_birth) as user_birth, max(user_phonenumber) as user_phonenumber, max(user_email) as user_email, max(user_address) as user_address,  
-		from USERS where user_id=#{user_id} and user_password=#{user_password}	
+	    max(user_birth) as user_birth, max(user_phonenumber) as user_phonenumber, max(user_email) as user_email, max(user_address) as user_address  
+		from USERS where user_id=#{id} and user_password=#{pw}	
+	</select>
+	
+	<!-- 로그인유지 비번값출력 -->
+	<select id="loginCookie" parameterType="LoginVO" resultType="UserVO">
+		select user_password from USERS where user_id=#{id}
 	</select>
 	
 	

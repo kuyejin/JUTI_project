@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:url value="/" var="root"></c:url>
 <c:url value="/resources/upload" var="upload"></c:url>
 <!DOCTYPE html>
@@ -75,18 +76,17 @@
     	}
 	}
 		  
-	  function popupOpen() { window.open("login", "a", "width=400, height=300, left=100, top=50"); }
-	
+
 </script>
 </head>
 
 
 <body>
-<%-- <c:if test="${sessionScope.login ne null }">
-	<c:if test="${sessionScope.login.proid eq 'admin@festa.com' }">
+ <c:if test="${sessionScope.login ne null }">
+	<c:if test="${sessionScope.login.user_id eq 'admin' }">
 		<c:redirect url="/empty"/>
 	</c:if>
-</c:if> --%>
+</c:if> 
 <!-- 그룹 -->
 	<div id="wrap">
 		<div id="header">
@@ -103,20 +103,33 @@
 					</form>
 					
 					<ul id="fixMenu">	
-						<li><a href="javascript:popupOpen();" > 로그인 </a></li>
-						<li><a href="${root}join/">회원가입</a></li>
-						<li><a href="${root}cart/">장바구니</a></li>				
+					    <c:if test="${login eq null }">
+							<li><a href="${root}member/loginForm" class="btn_pop">로그인</a></li>
+						</c:if>
+						<c:if test="${login ne null }">
+						    <li><a href="${root}member/logout" class="btn_pop">로그아웃</a></li>
+						</c:if>
+						
 						<c:if test="${login eq null }">
-							<li><a href="${root}mypage/">고객센터</a></li>
-						</c:if>						
-					</ul></br>
+							<li><a href="${root}member/join">회원가입</a></li>
+					    </c:if>
+						<c:if test="${login ne null }">
+						    <li><a href="${root}mypage/">마이페이지</a></li>
+						</c:if>
+																							
+						<li><a href="${root}cart/">장바구니</a></li>				
+						<li><a href="${root}mypage/">고객센터</a></li>
 					
+					</ul><br>
+					
+					
+					
+																		
 					<ul id="mainMenu">
 						<li><a href="${root}product/">상품보기</a></li>
 						<li><a href="${root}order_product/">주문제작</a></li>
 						<li><a href="${root}review/">마이도안</a></li>
-					
-					
+										
 					</ul>
 	
 					<c:if test="${login ne null }">
@@ -126,7 +139,7 @@
 							</button>
 							<dl class="menu_box" tabindex="0">
 								<dt>
-									<b>${login.proname }님 환영합니다.</b>
+									<b>${login.user_name }님 환영합니다.</b>
 								</dt>
 								<dd>
 									<span class="btn_mylist">나의 그룹</span>

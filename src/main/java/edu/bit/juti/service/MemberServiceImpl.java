@@ -1,12 +1,16 @@
 package edu.bit.juti.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -31,29 +35,55 @@ public class MemberServiceImpl implements MemberService {
 	 @Inject 
 	 MemberDaoImpl memberDao;
 	 
-
-
+	 @Inject
+	 UserMapper userMapper;
+	 
+	 @Inject
+	private BCryptPasswordEncoder passEncoder;
 
 	
 	//회원가입 등록처리
 	@Override
 	public void addUser(Model model, UserVO userVO) {
-				
+		String password = userVO.getUser_password();
+		String encode = passEncoder.encode(password);		
+	 	
+		userVO.setUser_password(encode);		
+		
 		memberDao.addUser_nomal(userVO);
-		/*
-		 * userVO = memberDao.find_pronum(userVO); 
-		 * memberDao.myadminInsert(userVO);
-		 */
+		
+		//userMapper.insertUser(userVO);
+		userMapper.insertAuthorities(userVO);
+		
 		model.addAttribute("join",userVO);
 	}
+	
 
+	//로그인 처리
 	@Override
 	public UserVO login(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVO) {
 		UserVO user = memberDao.login(loginVO);
-				
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("login", user);
+
 		return user;
 	}
 
+	//로그인 유지
+	public UserVO loginCookie(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVO) {
+		UserVO user = memberDao.loginCookie(loginVO);
+		loginVO.setPw(user.getUser_password());
+		
+		user = memberDao.login(loginVO);
+		System.out.println(user);
+
+		HttpSession session = req.getSession();
+		session.setAttribute("login", user);
+
+
+		return user;
+	}
 
 	
 		

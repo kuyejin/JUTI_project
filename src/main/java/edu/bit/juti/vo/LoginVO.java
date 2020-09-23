@@ -14,8 +14,8 @@ import lombok.Setter;
 @Getter
 public class LoginVO {
 	
-	String user_id;                  //로그인 ID
-	String user_password;            //로그인 PW
+	String id;                  //로그인 ID
+	String pw;                  //로그인 PW
 	String user_name;                //ID 찾기에 사용
     
 

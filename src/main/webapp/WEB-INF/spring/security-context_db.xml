@@ -14,11 +14,12 @@
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
         
         
-        <form-login login-page="/member/login"
+        <form-login login-page="/member/loginForm"
+        			login-processing-url="/member/login"
                     default-target-url="/" 
                     authentication-failure-url="/member/login?error" 
-                    username-parameter="user_id"
-                    password-parameter="user_password" />
+                    username-parameter="id"
+                    password-parameter="pw" />
         
          <logout logout-url="/member/logout" logout-success-url="/" /> 
                 
@@ -36,19 +37,30 @@
     <!-- 추가해주기 -->
      <beans:bean id="customNoOpPasswordEncoder" class="edu.bit.juti.security.CustomNoOpPasswordEncoder"/> 
      <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-    
+     <beans:bean id="customUserDetailsService" class="edu.bit.juti.security.CustomUserDetailsService" />
+	
+	
+	<authentication-manager>
+		<authentication-provider> 
+			<user-service> 
+				<user name="admin" password="{noop}admin" authorities="ROLE_MEMBER,ROLE_ADMIN" />
+				<user name="user" password="{noop}user" authorities="ROLE_USER" /> 			
+			</user-service> 
+		</authentication-provider>
+	</authentication-manager>
 	
 	
 	<!-- 기존에 있는 DB를 이용 -->
     <!--  provider  -->
       <authentication-manager>
-        <authentication-provider>
-        <!-- <password-encoder ref ="customNoOpPasswordEncoder"/> -->
-        <password-encoder ref ="bcryptPasswordEncoder"/>
-        <jdbc-user-service 
+        <authentication-provider user-service-ref="customUserDetailsService">
+        <password-encoder ref ="customNoOpPasswordEncoder"/> 
+        <!-- <password-encoder ref ="bcryptPasswordEncoder"/> -->
+        
+       <!--  <jdbc-user-service 
             data-source-ref="dataSource"         
             users-by-username-query="select user_id, user_password, enabled from USERS where user_id = ?"  
-            authorities-by-username-query="select user_id, authority from USERS where user_id = ?"/>          
+            authorities-by-username-query="select user_id, authority from USERS where user_id = ?"/>    -->       
             <!-- 유저인증에 대한 쿼리 / 권한에 대한 쿼리-->
                     
         </authentication-provider>
