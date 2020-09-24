@@ -81,6 +81,7 @@
 </head>
 
 
+
 <body>
  <c:if test="${sessionScope.login ne null }">
 	<c:if test="${sessionScope.login.user_id eq 'admin' }">
