@@ -26,6 +26,12 @@ public class UserVO {
 	private String authority;
 	private int logincheck;	
 	
+	public String getAuthorities() { 
+		String authorities = "ROLE_USER"; 
+		return authorities; 
+	}
+
+
 	
 
 

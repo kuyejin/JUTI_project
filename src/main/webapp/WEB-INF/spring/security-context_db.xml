@@ -14,16 +14,17 @@
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
         
         
-        <form-login login-page="/member/loginForm"
-        			login-processing-url="/member/login"
+        <form-login login-page="/member/loginForm"        			
                     default-target-url="/" 
                     authentication-failure-url="/member/login?error" 
                     username-parameter="id"
-                    password-parameter="pw" />
+                    password-parameter="pw" 
+                     always-use-default-target='true' />
         
-         <logout logout-url="/member/logout" logout-success-url="/" /> 
+         <logout logout-url="/logout" logout-success-url="/" invalidate-session="true" /> 
                 
-        <!-- <access-denied-handler error-page="/member/accessDenied" /> --> <!-- 접근제한일 때 뜨는 페이지 -->       
+        <access-denied-handler error-page="/member/accessDenied" />    
+       
         <csrf disabled="false"></csrf> 
     </http>    
     
@@ -39,7 +40,7 @@
      <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
      <beans:bean id="customUserDetailsService" class="edu.bit.juti.security.CustomUserDetailsService" />
 	
-	
+	<!--  
 	<authentication-manager>
 		<authentication-provider> 
 			<user-service> 
@@ -48,7 +49,7 @@
 			</user-service> 
 		</authentication-provider>
 	</authentication-manager>
-	
+	-->
 	
 	<!-- 기존에 있는 DB를 이용 -->
     <!--  provider  -->
@@ -56,13 +57,7 @@
         <authentication-provider user-service-ref="customUserDetailsService">
         <password-encoder ref ="customNoOpPasswordEncoder"/> 
         <!-- <password-encoder ref ="bcryptPasswordEncoder"/> -->
-        
-       <!--  <jdbc-user-service 
-            data-source-ref="dataSource"         
-            users-by-username-query="select user_id, user_password, enabled from USERS where user_id = ?"  
-            authorities-by-username-query="select user_id, authority from USERS where user_id = ?"/>    -->       
-            <!-- 유저인증에 대한 쿼리 / 권한에 대한 쿼리-->
-                    
+                        
         </authentication-provider>
     </authentication-manager> 
     

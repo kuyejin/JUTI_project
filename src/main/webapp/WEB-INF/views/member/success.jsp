@@ -53,9 +53,11 @@
 		<div class="success_wrap container">
 			<h2><span>회원가입이 완료되었습니다!</span></h2>
 			<p>
-				<b>${join.user_name }</b> 님, 페스타 회원이 되신 것을 환영합니다.<br>
-				페스타에서 제공하는 다양한 서비스를 즐겨보세요!
+				JUTI 회원이 되신 것을 환영합니다.<br>
+				JUTI에서 제공하는 다양한 서비스를 즐겨보세요!
 			</p>
+			
+			<a href="${root}member/loginForm" class="btn_pop">로그인</a></li>
 			<ul class="services">
 				<li><b>한눈에 보는 캠핑장</b></li>
 				<li><b>사업자 공식계정 제공</b></li>

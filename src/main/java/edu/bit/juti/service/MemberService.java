@@ -23,7 +23,7 @@ public interface MemberService {
 
 	public UserVO loginCookie(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVO);
 	
-
+	void logout(HttpServletRequest req, HttpServletResponse resp);
 	
 	
 }

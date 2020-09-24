@@ -15,8 +15,16 @@ import edu.bit.juti.dao.MemberDao;
 import edu.bit.juti.mapper.UserMapper;
 import edu.bit.juti.vo.LoginVO;
 import edu.bit.juti.vo.UserVO;
+import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
+@NoArgsConstructor
+@Service
+@Log4j
 public class UserService {
+	
+
+
 	
 			
 

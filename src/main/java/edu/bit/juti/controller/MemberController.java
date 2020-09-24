@@ -54,19 +54,35 @@ public class MemberController {
 	 * return user; }
 	 */
 	
-	
-	
-	
-	
-    
-	//·Î±×¾Æ¿ô	
-	@RequestMapping(value = "logout")
-        public String logout(HttpSession session) throws Exception{
-			log.info("/member/logout");
-			session.invalidate(); 			                      			
-			return "redirect:/";					
+	// ·Î±×¾Æ¿ô (ÆË¾÷)
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout() {
+		return "member/logout";
 	}
 	
+
+	
+	
+	
+//	// ·Î±×¾Æ¿ô (ÆË¾÷>ÆË¾÷ ³» ±â´É)
+//	@RequestMapping(value = "logout", method = RequestMethod.POST)
+//	public String logout(HttpServletRequest req,HttpServletResponse resp) {
+//		memberService.logout(req,resp);
+//		
+//		return "main";
+//	}
+
+			    
+//	//·Î±×¾Æ¿ô	
+//	@RequestMapping(value = "logout2", method = RequestMethod.POST)
+//        public String logout(HttpSession session) throws Exception{
+//			log.info("/member/logout");
+//			session.invalidate(); 			                      			
+//			return "redirect:/";					
+//	}
+//	
+	
+	//È¸¿ø°¡ÀÔ
 	@RequestMapping(value="join")
 	public String join() {
 		log.info("join");			

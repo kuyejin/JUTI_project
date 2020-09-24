@@ -23,6 +23,9 @@ public interface UserMapper {
 		
 	@Select("select * from USERS where user_id = #{id}")
 	 public UserVO readUser(String id);
+	
+	//@Select("select * from USERS where user_id = #{id}")
+	// public CustomUserDetails readUser(String id);
 
 	
 	

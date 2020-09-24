@@ -46,8 +46,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void addUser(Model model, UserVO userVO) {
 		String password = userVO.getUser_password();
-		String encode = passEncoder.encode(password);		
-	 	
+		String encode = passEncoder.encode(password);		 	
 		userVO.setUser_password(encode);		
 		
 		memberDao.addUser_nomal(userVO);
@@ -55,7 +54,7 @@ public class MemberServiceImpl implements MemberService {
 		//userMapper.insertUser(userVO);
 		userMapper.insertAuthorities(userVO);
 		
-		model.addAttribute("join",userVO);
+		model.addAttribute("user",userVO);
 	}
 	
 
@@ -83,6 +82,19 @@ public class MemberServiceImpl implements MemberService {
 
 
 		return user;
+	}
+
+    //로그아웃
+	public void logout(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		session.invalidate();
+		Cookie[] userCookies = req.getCookies();
+	    for(int i=0; i<userCookies.length; i++) {
+	         userCookies[i].setMaxAge(0);
+	         userCookies[i].setPath("/");
+	         resp.addCookie(userCookies[i]);
+	    }
+		
 	}
 
 	
