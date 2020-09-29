@@ -11,43 +11,32 @@ import org.springframework.stereotype.Service;
 
 import edu.bit.juti.dao.MemberDaoImpl;
 import edu.bit.juti.mapper.UserMapper;
-import edu.bit.juti.vo.CustomUser;
-
 import edu.bit.juti.vo.UserVO;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-
-	/*
-	 * @Inject private UserMapper userMapper;
-	 */
+	
+//	@Setter(onMethod_ =@Autowired)
+//	private UserMapper userMapper;
+	
 	
 	@Inject 
-	 private UserMapper usermapper;
+	 private UserMapper userMapper;
 	
 		
 	  @Override 
 	  public UserDetails loadUserByUsername(String id) throws  UsernameNotFoundException { 
-		  log.warn("Load User By User number: " + id);
+		  log.warn("유저아이디: " + id);
 		  
-		   UserVO vo = usermapper.readUser(id);
+		   UserVO vo = userMapper.readUser(id);
 		   log.warn("queried by UserVO mapper: " + vo);
 		  
 		   return vo == null ? null : new CustomUser(vo); }
 		 
-	/*
-	 @Override
-	    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-	        CustomUserDetails user =usermapper.readUser(id);
-	        if(user==null) {
-	            throw new UsernameNotFoundException(id);
-	        }
-	        return user;
-	    }
-	 */
 
 
 	

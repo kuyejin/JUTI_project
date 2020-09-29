@@ -380,23 +380,7 @@
                         <label for="juti5">생년월일</label>
                         <input type="text" id="user_birth" name="user_birth" placeholder="ex)1990415" required ="required">
                         
-						<%-- <select name="year">
-						<%for(int i=2020; i>1949; i--){ %>
-						<option value="<%=i%>"><%=i %>년</option>
-						<%} %>
-						</select>
-						 
-						<select name="month">
-						<%for(int i=1; i<13; i++){ %>
-						<option value="<%=i%>"><%=i %>월</option>
-						<%} %>
-						</select>
-						 
-						<select name="day">			 
-						<%for(int i=1; i<31; i++){ %>
-						<option value="<%=i%>"><%=i %>일</option>
-						<%} %>
-						</select> --%>
+
                      </div>
                      
                      <div class="ip_box">

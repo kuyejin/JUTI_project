@@ -60,27 +60,7 @@ public class MemberController {
 		return "member/logout";
 	}
 	
-
 	
-	
-	
-//	// 로그아웃 (팝업>팝업 내 기능)
-//	@RequestMapping(value = "logout", method = RequestMethod.POST)
-//	public String logout(HttpServletRequest req,HttpServletResponse resp) {
-//		memberService.logout(req,resp);
-//		
-//		return "main";
-//	}
-
-			    
-//	//로그아웃	
-//	@RequestMapping(value = "logout2", method = RequestMethod.POST)
-//        public String logout(HttpSession session) throws Exception{
-//			log.info("/member/logout");
-//			session.invalidate(); 			                      			
-//			return "redirect:/";					
-//	}
-//	
 	
 	//회원가입
 	@RequestMapping(value="join")
@@ -101,14 +81,14 @@ public class MemberController {
 		
 	}
 	
-	//로그인유지
+	//@처리해야됨 로그인유지
 	@RequestMapping(value = "loginCookie", method = RequestMethod.POST)
 	public @ResponseBody UserVO loginCookie(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVO) {
 		
 		return memberService.loginCookie(req, resp, loginVO);
 	}
 
-	 //세션체크
+	 //@처리해야됨 세션체크
 	@RequestMapping(value = "loginSession", method = RequestMethod.POST)
 	public @ResponseBody UserVO  loginSession(HttpServletRequest req,HttpSession session) {
 	         

@@ -23,11 +23,17 @@ public class UserVO {
 	private String user_email;
 	private String user_address;
 	private int enabled;
-	private String authority;
-	private int logincheck;	
+	
+//	private String authority;
+//	private int logincheck;	
 	
 	public String getAuthorities() { 
 		String authorities = "ROLE_USER"; 
+		
+		//관리자아이디로 로그인 했을 시 권한부여
+		if(getUser_id().equals("admin"))
+			authorities = "ROLE_ADMIN";
+		
 		return authorities; 
 	}
 

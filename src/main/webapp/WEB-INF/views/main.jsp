@@ -82,12 +82,16 @@
 
 
 
+
+
 <body>
- <c:if test="${sessionScope.login ne null }">
-	<c:if test="${sessionScope.login.user_id eq 'admin' }">
-		<c:redirect url="/empty"/>
+
+<%-- <c:if test="${sessionScope.user_id ne null }">
+	<c:if test="${sessionScope.user_id eq 'admin' }">
+		<c:redirect url="${root}ad/"/>
 	</c:if>
-</c:if> 
+</c:if>  --%>
+
 <!-- 그룹 -->
 	<div id="wrap">
 		<div id="header">
@@ -114,18 +118,29 @@
 					</sec:authorize>
 					
 					<!-- 로그인한 사람만 보임 -->
-					<sec:authorize access="isAuthenticated()">																			   		
+					<%-- <sec:authorize access="isAuthenticated()">	 --%>
+					<sec:authorize access="hasRole('USER')">																			   		
 					   		<ul id="fixMenu">
 						   		<li><a href="${root}member/logout" class="btn_pop">로그아웃</a></li>
 								<li><a href="${root}mypage/">마이페이지</a></li>
 								<li><a href="${root}cart/">장바구니</a></li>
 								<li><a href="${root}mypage/">고객센터</a></li>
 							</ul><br>
-													
-												
+																									
 						<sec:authentication var="principal" property="principal"/>
-			            <p>${principal.user.user_name} 님 환영합니다</p>												
+			            <p>${principal.user.user_name} 님 환영합니다</p>																   									   				   
 				    </sec:authorize>
+				    
+				    
+				    <!-- 관리자만 보임 -->
+				    <sec:authorize access="hasRole('ADMIN')">	
+					    <ul id="fixMenu">
+					    <li><a href="${root}member/logout" class="btn_pop">로그아웃</a></li>
+					    <li><a href="${root}admin/index">관리자페이지</a></li>
+					    </ul><br>
+				    </sec:authorize>
+				    
+				    
 					
 																																	
 					<ul id="mainMenu">

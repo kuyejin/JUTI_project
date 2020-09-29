@@ -29,7 +29,13 @@
 				    <c:url value="/login" var="loginUrl" />  
 					<form:form action="${loginUrl}" method="post" id="loginForm" name="loginForm"  class="comm_form">				
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-	
+					
+					
+					     <c:if test="${param.error != null}">
+					        <p>아이디와 비밀번호가 잘못되었습니다.</p>
+					    </c:if>
+
+				
 						<div class="ip_box">
 							<input id="id" name="id" type="text" placeholder="아이디">
 						</div>

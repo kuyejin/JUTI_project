@@ -45,13 +45,13 @@ public class MemberServiceImpl implements MemberService {
 	//회원가입 등록처리
 	@Override
 	public void addUser(Model model, UserVO userVO) {
-		String password = userVO.getUser_password();
-		String encode = passEncoder.encode(password);		 	
-		userVO.setUser_password(encode);		
+			 	
+		userVO.setUser_password(passEncoder.encode(userVO.getUser_password()));	
+//		String encode = passEncoder.encode(password);
+//		String password = userVO.getUser_password();
 		
 		memberDao.addUser_nomal(userVO);
 		
-		//userMapper.insertUser(userVO);
 		userMapper.insertAuthorities(userVO);
 		
 		model.addAttribute("user",userVO);

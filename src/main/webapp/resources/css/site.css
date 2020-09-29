@@ -809,7 +809,7 @@ th, b, strong {
 }
 
 .container {
-  width: 1024px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -3460,7 +3460,7 @@ form .f_message.ok {
 }
 
 .camp_wrap .comm_tit:before {
-  content: '#';
+  content: '';
   color: #1edeb9;
 }
 

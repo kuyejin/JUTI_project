@@ -16,10 +16,10 @@
         
         <form-login login-page="/member/loginForm"        			
                     default-target-url="/" 
-                    authentication-failure-url="/member/login?error" 
+                    authentication-failure-url="/member/loginForm?error" 
                     username-parameter="id"
                     password-parameter="pw" 
-                     always-use-default-target='true' />
+                    always-use-default-target='true' />
         
          <logout logout-url="/logout" logout-success-url="/" invalidate-session="true" /> 
                 
@@ -40,7 +40,7 @@
      <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
      <beans:bean id="customUserDetailsService" class="edu.bit.juti.security.CustomUserDetailsService" />
 	
-	<!--  
+	<!--  provider  -->
 	<authentication-manager>
 		<authentication-provider> 
 			<user-service> 
@@ -49,15 +49,12 @@
 			</user-service> 
 		</authentication-provider>
 	</authentication-manager>
-	-->
 	
-	<!-- 기존에 있는 DB를 이용 -->
+	
     <!--  provider  -->
       <authentication-manager>
-        <authentication-provider user-service-ref="customUserDetailsService">
-        <password-encoder ref ="customNoOpPasswordEncoder"/> 
-        <!-- <password-encoder ref ="bcryptPasswordEncoder"/> -->
-                        
+        <authentication-provider user-service-ref="customUserDetailsService">     
+            <password-encoder ref ="bcryptPasswordEncoder"/>                         
         </authentication-provider>
     </authentication-manager> 
     

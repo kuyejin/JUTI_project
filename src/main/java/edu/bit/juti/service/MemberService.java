@@ -21,7 +21,7 @@ public interface MemberService {
 	
 	UserVO login(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVo);
 
-	public UserVO loginCookie(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVO);
+	UserVO loginCookie(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVO);
 	
 	void logout(HttpServletRequest req, HttpServletResponse resp);
 	

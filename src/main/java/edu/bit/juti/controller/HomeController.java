@@ -26,11 +26,11 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class HomeController {
 	
-	@RequestMapping(value="/h")
+	@RequestMapping(value="/ad")
 	public String h() {
 		log.info("main");
 			
-		return "h";
+		return "1test";
 	}
 	
 

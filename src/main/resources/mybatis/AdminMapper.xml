@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin"> 
+			
+	<!-- 상폼목록보기 -->
+	<select id="productList" resultType="ProductVO" >
+	    select *
+	    from PRODUCT
+	</select>
+	
+	
+ 	<insert id="productRegister" parameterType="ProductVO">
+		 insert into product (product_id, product_name, product_price, product_image, category_id, product_stock, product_date)
+	     values (product_seq.nextval, #{product_name}, #{product_price},'테스트경로', #{category_id}, #{product_stock}, #{product_date})
+	</insert> 
+	
+			
+	<select id="category" parameterType="Product_CategoryVO" resultType="Product_CategoryVO" >
+		select category_id, category_name from PRODUCT_CATEGORY 
+	</select>
+
+
+
+	
+	
+
+	
+</mapper>
