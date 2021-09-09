@@ -110,7 +110,7 @@
 					<!-- 모든  사람 볼 수 있음-->
 					<sec:authorize access="isAnonymous()"> 
 					   		<ul id="fixMenu">	
-						   		<li><a href="${root}member/loginForm" class="btn_pop">로그인테스트</a></li>
+						   		<li><a href="${root}member/loginForm" class="btn_pop">로그인테스트2</a></li>
 								<li><a href="${root}member/join">회원가입</a></li>
 								<li><a href="${root}cart/">장바구니</a></li>
 								<li><a href="${root}mypage/">고객센터</a></li>
