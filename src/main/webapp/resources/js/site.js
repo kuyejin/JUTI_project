@@ -766,7 +766,7 @@ function profileRemove() {
 		file = container.find('input[type=file]'),
 		hidden = container.find('input[type=hidden]'),
 		img = container.find('.pf_picture img');
-	var noImg = '/festa/resources/images/thumb/no_profile.png';
+	var noImg = '/juti/resources/images/thumb/no_profile.png';
 	file.val('');
 	hidden.remove();
 	img.attr('src', noImg).removeAttr('alt');
@@ -777,7 +777,7 @@ function fileUpload() {
 		box = my.parent('li'),
 		container = my.parents('.file_thumbnail'),
 		feed = container.length > 0;
-	var noImg = '/festa/resources/images/thumb/no_profile.png';
+	var noImg = '/juti/resources/images/thumb/no_profile.png';
 	var f = this.files[0];
 	var limit = 5242880,	// 5MB
 		imgFile = f.type.match('image.*'),

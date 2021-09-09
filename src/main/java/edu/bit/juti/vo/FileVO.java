@@ -3,6 +3,7 @@ package edu.bit.juti.vo;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,10 +13,17 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class Product_CategoryVO {
+@Data
+public class FileVO {
 	
-	private int category_id;                  //카테고리 번호(pk)
-	private String category_name;             //카테고리 이름
+	
+	private String uuid;
+	private String path;
+	private String file_Name;
+	private int product_id; 
+	
 
-		
+
+
+	
 }

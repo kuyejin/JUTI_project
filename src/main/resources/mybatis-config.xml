@@ -16,6 +16,7 @@
   		<typeAlias alias="LoginVO" type="edu.bit.juti.vo.LoginVO" />
   		<typeAlias alias="ProductVO" type="edu.bit.juti.vo.ProductVO" />
   		<typeAlias alias="Product_CategoryVO" type="edu.bit.juti.vo.Product_CategoryVO" />
+  		<typeAlias alias="FileVO" type="edu.bit.juti.vo.FileVO" />
   	</typeAliases>
   	
   	

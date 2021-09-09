@@ -35,6 +35,7 @@
 				   <th>가격</th>
 				   <th>수량</th>
 				   <th>등록날짜</th>
+				   <th>이미지</th>
 				  </tr>
 				 </thead>
 				 <tbody>
@@ -46,6 +47,7 @@
 				   <td>${prolist.product_price}</td>
 				   <td>${prolist.product_stock}</td>
 				   <td>${prolist.product_date}</td>
+				   <td>${prolist.product_image}</td>
 				   
 				   
 				  </tr>   

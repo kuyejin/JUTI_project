@@ -3,6 +3,7 @@ package edu.bit.juti.vo;
 
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,6 +36,8 @@ public class ProductVO {
 	private int category_id;                  //카테고리 번호(Fk)
 	private int product_stock;               //상품수량
 	private Date product_date;               //상품등록날짜
+	
+	private List<FileVO> fileList;
 	
 
 

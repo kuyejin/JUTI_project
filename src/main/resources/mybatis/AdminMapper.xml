@@ -6,20 +6,49 @@
 			
 	<!-- 상폼목록보기 -->
 	<select id="productList" resultType="ProductVO" >
-	    select *
-	    from PRODUCT
+	    select * from PRODUCT order by product_id desc
 	</select>
 	
 	
- 	<insert id="productRegister" parameterType="ProductVO">
+  	<insert id="productRegister" parameterType="ProductVO">
 		 insert into product (product_id, product_name, product_price, product_image, category_id, product_stock, product_date)
-	     values (product_seq.nextval, #{product_name}, #{product_price},'테스트경로', #{category_id}, #{product_stock}, #{product_date})
-	</insert> 
+	     values (product_seq.nextval, #{product_name}, #{product_price},#{product_image}, #{category_id}, #{product_stock}, #{product_date})
+	</insert>  
+	
+	
+<!-- 	<insert id="productRegister" parameterType="ProductVO">
+		 insert into product (product_id, product_name, product_price, category_id, product_stock, product_date)
+	     values (product_seq.nextval, #{product_name}, #{product_price}, #{category_id}, #{product_stock}, #{product_date})
+	</insert>  -->
+	
 	
 			
 	<select id="category" parameterType="Product_CategoryVO" resultType="Product_CategoryVO" >
 		select category_id, category_name from PRODUCT_CATEGORY 
 	</select>
+	
+
+
+
+
+
+
+
+
+
+
+
+	 <select id="getProduct_id" resultType="int" >
+		select product_id from PRODUCT 		
+	</select> 
+	
+	<insert id="insertAttach" parameterType="FileVO">
+		<foreach item="item" index="index" collection="list" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
+		insert into FILES(uuid, path, file_name, product_id)
+		VALUES (#{item.uuid},#{item.path},#{item.file_Name},#{item.product_id})
+		</foreach>
+	</insert> 
+
 
 
 
