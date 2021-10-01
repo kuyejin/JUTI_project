@@ -24,7 +24,7 @@
 			<!-- 로그인 { -->
 			<section id="log1" class="login_area act">
 				<div>
-					<h3 class="snd_only">로그인</h3>
+					<h3 class="snd_only">로그인2</h3>
 				  
 				    <c:url value="/login" var="loginUrl" />  
 					<form:form action="${loginUrl}" method="post" id="loginForm" name="loginForm"  class="comm_form">				
@@ -37,7 +37,7 @@
 
 				
 						<div class="ip_box">
-							<input id="id" name="id" type="text" placeholder="아이디">
+							<input id="id" name="id" type="text" placeholder="아이디22">
 						</div>
 						<div class="ip_box">
 							<input id="pw" name="pw" type="password" placeholder="password">
