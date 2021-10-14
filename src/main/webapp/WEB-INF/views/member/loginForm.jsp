@@ -20,11 +20,12 @@
 		<div class="login_wrap pop_wrap">
 			<h2>
 				<img src="${root }resources/images/test/보석.png" alt="JUTI">
-			</h2>
+			</h2> 
 			<!-- 로그인 { -->
 			<section id="log1" class="login_area act">
 				<div>
-					<h3 class="snd_only">로그인2</h3>
+					<h3 class="snd_only">로그인</h3>
+					
 				  
 				    <c:url value="/login" var="loginUrl" />  
 					<form:form action="${loginUrl}" method="post" id="loginForm" name="loginForm"  class="comm_form">				
@@ -37,7 +38,7 @@
 
 				
 						<div class="ip_box">
-							<input id="id" name="id" type="text" placeholder="아이디22">
+							<input id="id" name="id" type="text" placeholder="아이디">
 						</div>
 						<div class="ip_box">
 							<input id="pw" name="pw" type="password" placeholder="password">
@@ -46,6 +47,9 @@
 						<p id="check" hidden="hidden" class="f_message rst">아이디 혹은 비밀번호를 다시 확인해주세요.</p>
 						<button type="submit" name="btn_submit2" id="btn_submit2"
 							class="comm_btn sbm">로그인</button>
+						
+						<button type="submit" name="btn_submit2" id="btn_submit2"
+							class="comm_btn.sbm">로그인3</button>								
 					</form:form>
 				
 					

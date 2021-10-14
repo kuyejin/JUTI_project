@@ -18,9 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 @Log4j
 @AllArgsConstructor

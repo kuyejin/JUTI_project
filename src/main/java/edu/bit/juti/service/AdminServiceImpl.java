@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,7 @@ import lombok.extern.log4j.Log4j;
 @Service
 public class AdminServiceImpl implements AdminService{
 	
-	@Inject 
+	@Autowired
 	 AdminDaoImpl adminDao;
 	
 

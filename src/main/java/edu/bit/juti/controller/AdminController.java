@@ -52,13 +52,13 @@ import net.sf.json.JSONArray;
 public class AdminController {
 
     		
-	@Inject
+	@Autowired
 	private AdminServiceImpl adminService;
 	
 	//관리자페이지
 	@RequestMapping(value = "index")
     public String index(){
-		log.info("index");				
+		log.info("관리자 페이지");				
 		return "admin/index";			
     }
 	

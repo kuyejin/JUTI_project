@@ -25,16 +25,14 @@ import edu.bit.juti.vo.UserVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 @RequestMapping("/member/")
 @Log4j
 public class MemberController {
 
     		
-	@Inject
+	@Autowired
 	private MemberServiceImpl memberService;
 	
 

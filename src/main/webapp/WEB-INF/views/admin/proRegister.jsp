@@ -84,7 +84,7 @@
 		     <li class="box">
 			 	<p><label for="product_name">상품명</label></p>
 			 	<div>
-			 	<input type="text" id="product_name" name="product_name" required="required">
+			 		<input type="text" id="product_name" name="product_name" required="required">
 			 	</div>
 			 </li> 
 			

@@ -827,7 +827,7 @@ th, b, strong {
 }
 
 img {
-  max-width: 100%;
+  max-width: 30%;
 }
 
 pre {
@@ -1014,7 +1014,8 @@ textarea:focus {
   border-radius: 25px;
   font-family: "noto-sans-scott-r";
   font-size: 20px;
-  color: #fff;
+  color: #000000;
+  
 }
 
 a.comm_btn {

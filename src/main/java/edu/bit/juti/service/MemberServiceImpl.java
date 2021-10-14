@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -25,20 +26,19 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-
+@Service
 @Log4j
 @AllArgsConstructor
-@Service
 public class MemberServiceImpl implements MemberService {
 
 	 
-	 @Inject 
+	@Autowired 
 	 MemberDaoImpl memberDao;
 	 
-	 @Inject
+	@Autowired
 	 UserMapper userMapper;
 	 
-	 @Inject
+	@Autowired
 	private BCryptPasswordEncoder passEncoder;
 
 	
@@ -70,6 +70,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	//로그인 유지
+	@Override
 	public UserVO loginCookie(HttpServletRequest req, HttpServletResponse resp, LoginVO loginVO) {
 		UserVO user = memberDao.loginCookie(loginVO);
 		loginVO.setPw(user.getUser_password());
@@ -85,6 +86,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
     //로그아웃
+	@Override
 	public void logout(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
 		session.invalidate();
