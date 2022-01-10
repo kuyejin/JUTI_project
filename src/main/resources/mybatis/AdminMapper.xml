@@ -10,16 +10,17 @@
 	</select>
 	
 	
-  	<insert id="productRegister" parameterType="ProductVO">
+<!--   	<insert id="productRegister" parameterType="ProductVO">
 		 insert into product (product_id, product_name, product_price, product_image, category_id, product_stock, product_date)
 	     values (product_seq.nextval, #{product_name}, #{product_price},#{product_image}, #{category_id}, #{product_stock}, #{product_date})
-	</insert>  
+	</insert>   -->
 	
 	
-<!-- 	<insert id="productRegister" parameterType="ProductVO">
+	
+	<insert id="productRegister" parameterType="ProductVO">
 		 insert into product (product_id, product_name, product_price, category_id, product_stock, product_date)
 	     values (product_seq.nextval, #{product_name}, #{product_price}, #{category_id}, #{product_stock}, #{product_date})
-	</insert>  -->
+	</insert>  
 	
 	
 			

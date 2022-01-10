@@ -3,10 +3,12 @@ package edu.bit.juti.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import edu.bit.juti.vo.LoginVO;
 import edu.bit.juti.vo.UserVO;
 
-
+@Repository
 public interface MemberDao {
 
 	

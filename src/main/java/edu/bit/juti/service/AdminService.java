@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import edu.bit.juti.vo.ProductVO;
 import edu.bit.juti.vo.Product_CategoryVO;
 
+@Service
 public interface AdminService {
 	
 	List<ProductVO> productList() ;

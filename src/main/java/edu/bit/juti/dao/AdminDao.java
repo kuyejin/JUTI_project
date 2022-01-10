@@ -3,13 +3,15 @@ package edu.bit.juti.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import edu.bit.juti.vo.FileVO;
 import edu.bit.juti.vo.LoginVO;
 import edu.bit.juti.vo.ProductVO;
 import edu.bit.juti.vo.Product_CategoryVO;
 import edu.bit.juti.vo.UserVO;
 
-
+@Repository
 public interface AdminDao {
 
 	List<ProductVO> productList();
